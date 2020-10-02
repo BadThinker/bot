@@ -1,23 +1,19 @@
 #Это университет?
-def isUniversity(text):
+def isUniversity(text, all_universitys):
 	pass
 
 #Это институт?
-def isInstitute(text):
+def isInstitute(text, all_institutes):
 	pass
 
 #Это курс?
-def isCourse(text):
+def isCourse(text, all_courses):
 	pass
 
 #Это группа?
-def isGroup(text):
+def isGroup(text, all_groups):
 	pass
 
 #Это день недели?
-def isDay(text):
-	pass
-
-#Это спам(т.е. сообщение, не поддающееся командам)
-def isSpam(text):
+def isDay(text, all_days):
 	pass
