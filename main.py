@@ -10,5 +10,5 @@ while(True):
 		# Если пришло новое сообщение и оно предназначалось боту
 		if event.type == VkEventType.MESSAGE_NEW and event.to_me == True:
 				user = User(event.message, event.user_id)	#Создали пользователя
-				analysis = Analysis(user)					#Объект-анализатор сообщения
+				analysis = Analysis(event.message)			#Анализатор сообщения
 				analysis.analysed()							#Проанализировали текст
