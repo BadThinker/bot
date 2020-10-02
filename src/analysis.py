@@ -14,7 +14,7 @@ class Analysis:
 		if(isUniversity(self.text, base.all_universitys)):	return 1
 		if(isInstitute(self.text, base.all_institutes)):	return 2
 		if(isCourse(self.text, ALL_COURSES)):				return 3
-		if(isGroup(self.text, base.all_groups)):			return 4
-		if(isDay(self.text, ALL_DAYS)):						return 5
+		if(isGroup(self.text)):								return 4
+		if(isDay(self.text)):								return 5
 		#***FIX IT****(Спам обрабатывется пока что так)
 		else: 												return 0					
