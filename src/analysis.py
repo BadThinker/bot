@@ -17,4 +17,4 @@ class Analysis:
 		if(isGroup(self.text, base.all_groups)):			return 4
 		if(isDay(self.text, ALL_DAYS)):						return 5
 		#***FIX IT****(Спам обрабатывется пока что так)
-		else 												return 0					
+		else: 												return 0					
