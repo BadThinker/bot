@@ -3,6 +3,7 @@ from vk_api.longpoll import VkLongPoll, VkEventType         #Для работы
 from src.user import User			#Модуль с описанием пользователя
 from src.api import vk				#Авторизованный объект 'vk' для работы с VK-API
 from src.analysis import Analysis	#Объект анализирующий сообщение пользователя
+from src.collector import Collector	#Сборщик, собирающий итоговое сообщение для пользователя 
 from src.writer import write		#Функция отправки сообщения пользователю
 
 while(True):
@@ -14,4 +15,5 @@ while(True):
 				id = event.user_id							#ID-пользователя
 				user = User(message, id)					#Создали пользователя
 				analysis = Analysis(message)				#Анализатор сообщения
-				write(analysis.analysed(), user, None)		#Отправляем сообщение
+				collector = Collector(analysis.analysed())	#Анализируем сообщение и отправляем сборщику
+				write(collector.collected(), user, None)	#Отправляем собранное сообщение
