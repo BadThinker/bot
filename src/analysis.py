@@ -13,8 +13,8 @@ class Analysis:
 		base = Base()				#Создали базу данных
 
 		if(isUniversity(self.text, base.all_universitys)):	return "Вы ввели университет"
-		if(isInstitute(self.text, base.all_institutes)):	return "Вы ввели название института"
-		if(isCourse(self.text, ALL_COURSES)):				return "Вы ввели какой-то курс"
+		if(isInstitute(self.text)):							return "Вы ввели название института"
+		if(isCourse(self.text)):							return "Вы ввели какой-то курс"
 		if(isGroup(self.text)):								return "Вы ввели какую-то группу"
 		if(isDay(self.text)):								return "Вы ввели расписание на какой то день"
 		if(isStart(self.text)):								return "Вы ввели стартовую команду"
