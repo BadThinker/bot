@@ -1,4 +1,6 @@
 import re							#Регулярные выражения
+from src.consts import ALL_INSTITUTES
+from src.consts import ALL_COURSES
 from src.consts import ALL_DAYS
 from src.consts import START_COMMANDS
 from src.consts import ERROR_COMMAND
@@ -12,18 +14,20 @@ def isUniversity(text, all_universitys):
 	pass
 
 #Это институт?
-def isInstitute(text, all_institutes):
-	for institute in all_institutes:
+def isInstitute(text):
+	for institute in ALL_INSTITUTES:
 		if institute == text:	return True
 
 	return False
 
 #Это курс какого то университета?
-def isCourse(text, all_courses):
-	text = text.split(" ")
-	if(len(text) == 2):
-		#******FIX IT*******(Сделать проверку на институт)
-		if text[0].find("КУРС") != -1 or text[1].find("КУРС") != -1:		return True
+def isCourse(text):
+	if text.find("КУРС") != -1:
+		text = text.replace("КУРС", "").strip().split(" ")
+		if isInstitute(text[0]):
+			text[1] = text[1].replace("М", "")
+			if text[1].isdigit():	return True
+
 	return False
 
 #Это группа?
