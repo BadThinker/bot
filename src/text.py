@@ -34,13 +34,10 @@ def isGroup(text):
 
 #Это расписание на какой то день?
 def isDay(text):
-	text = text.split(" ")
-	if(len(text) > 1):
-		for word in text:
-			for day in ALL_DAYS:
-				if word == day:
-					for word2 in text:
-						if isGroup(word2):	return True 
+	result1 = re.search(r'(ПОНЕДЕЛЬНИК|ВТОРНИК|СРЕДА|ЧЕТВЕРГ|ПЯТНИЦА)( {0,1}\w{1,3}[- ]\d\d\d.{0,1}| {0,1}\w{1,3}\d\d\d.{0,1})', text)
+	result2 = re.search(r'([А-Я]{1,3}[- ]\d\d\d\*{0,1}\ {0,1}|[А-Я]{1,3}\d\d\d\*{0,1}\ {0,1})(ПОНЕДЕЛЬНИК|ВТОРНИК|СРЕДА|ЧЕТВЕРГ|ПЯТНИЦА)', text)
+	if result1 != None and result1.group(0) == text:	return True
+	if result2 != None and result2.group(0) == text:	return True
 	
 	return False
 
