@@ -13,7 +13,6 @@ def isUniversity(text, all_universitys):
 
 #Это институт?
 def isInstitute(text, all_institutes):
-	text = text.upper()
 	for institute in all_institutes:
 		if institute == text:	return True
 
@@ -21,7 +20,7 @@ def isInstitute(text, all_institutes):
 
 #Это курс какого то университета?
 def isCourse(text, all_courses):
-	text = text.upper().split(" ")
+	text = text.split(" ")
 	if(len(text) == 2):
 		#******FIX IT*******(Сделать проверку на институт)
 		if text[0].find("КУРС") != -1 or text[1].find("КУРС") != -1:		return True
@@ -35,7 +34,7 @@ def isGroup(text):
 
 #Это расписание на какой то день?
 def isDay(text):
-	text = text.upper().split(" ")
+	text = text.split(" ")
 	if(len(text) > 1):
 		for word in text:
 			for day in ALL_DAYS:
@@ -47,7 +46,6 @@ def isDay(text):
 
 #Это стартовая команда?
 def isStart(text):
-	text = text.upper()
 	for command in START_COMMANDS:
 		if text == command:
 			return True
@@ -55,25 +53,25 @@ def isStart(text):
 
 #Это отчёт об ошибке?
 def isError(text):
-	if text.upper() == ERROR_COMMAND:	return True
+	if text == ERROR_COMMAND:	return True
 	return False
 
 #Это команда "Назад к группам"?
 def isBackToGroups(text):
-	if text.upper() == BACK_GROUPS_COMMMAD:	return True
+	if text == BACK_GROUPS_COMMMAD:	return True
 	return False
 
 #Это команда "Назад к институтам"?
 def isBackToInstitutes(text):
-	if text.upper() == BACK_INSTITUTES_COMMAND:	return True
+	if text == BACK_INSTITUTES_COMMAND:	return True
 	return False
 
 #Это команда "Текущая неделя"?
 def isThisWeek(text):
-	if text.upper() == THIS_WEEK_COMMAND: 	return True
+	if text == THIS_WEEK_COMMAND: 	return True
 	return False
 
 #Это команда "Следующая неделя"?
 def isNextWeek(text):
-	if text.upper() == NEXT_WEEK_COMMAND: 	return True
+	if text == NEXT_WEEK_COMMAND: 	return True
 	return False
