@@ -1,5 +1,4 @@
 from src.user import User
-from src.base import Base
 from src.consts import ALL_COURSES, ALL_DAYS
 from src.text import isUniversity, isInstitute, isCourse, isGroup, isDay, isStart, isError
 from src.text import isBackToGroups, isBackToInstitutes, isThisWeek, isNextWeek
@@ -10,18 +9,17 @@ class Analysis:
 	
 	#Анализируем сообщение пользователя и возвращаем сигнал:
 	def analysed(self):
-		base = Base()				#Создали базу данных
 
-		if(isUniversity(self.text, base.all_universitys)):	return "Вы ввели университет"
-		if(isInstitute(self.text)):							return "Вы ввели название института"
-		if(isCourse(self.text)):							return "Вы ввели какой-то курс"
-		if(isGroup(self.text)):								return "Вы ввели какую-то группу"
-		if(isDay(self.text)):								return "Вы ввели расписание на какой то день"
-		if(isStart(self.text)):								return "Вы ввели стартовую команду"
-		if(isError(self.text)):								return "Вы ввели \"Сообщить об ошибке\""
-		if(isBackToGroups(self.text)):						return "Вы ввели команду \"Назад к группам\""
-		if(isBackToInstitutes(self.text)):					return "Вы ввели команду \"Назад к институтам\""
-		if(isThisWeek(self.text)):							return "Вы ввели команду \"Текущая неделя\""
-		if(isNextWeek(self.text)):							return "Вы ввели команду \"Следующая неделя\""
+		#if(isUniversity(self.text, base.all_universitys)):	return 1
+		if(isInstitute(self.text)):							return 2
+		if(isCourse(self.text)):							return 3
+		if(isGroup(self.text)):								return 4
+		if(isDay(self.text)):								return 5
+		if(isStart(self.text)):								return 6
+		if(isError(self.text)):								return 7
+		if(isBackToGroups(self.text)):						return 8
+		if(isBackToInstitutes(self.text)):					return 9
+		if(isThisWeek(self.text)):							return 10
+		if(isNextWeek(self.text)):							return 11
 		#***FIX IT****(Спам обрабатывется пока что так)
-		else: 												return "Непонятная команда.."					
+		else: 												return 0					
