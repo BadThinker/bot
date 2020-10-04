@@ -1,5 +1,11 @@
 import re							#Регулярные выражения
 from src.consts import ALL_DAYS
+from src.consts import START_COMMANDS
+from src.consts import ERROR_COMMAND
+from src.consts import BACK_GROUPS_COMMMAD
+from src.consts import BACK_INSTITUTES_COMMAND
+from src.consts import THIS_WEEK_COMMAND
+from src.consts import NEXT_WEEK_COMMAND
 
 #Это университет? (пока что не нужная функция, т.к. университет только один - ВлГУ)
 def isUniversity(text, all_universitys):
@@ -37,4 +43,37 @@ def isDay(text):
 					for word2 in text:
 						if isGroup(word2):	return True 
 	
+	return False
+
+#Это стартовая команда?
+def isStart(text):
+	text = text.upper()
+	for command in START_COMMANDS:
+		if text == command:
+			return True
+	return False
+
+#Это отчёт об ошибке?
+def isError(text):
+	if text.upper() == ERROR_COMMAND:	return True
+	return False
+
+#Это команда "Назад к группам"?
+def isBackToGroups(text):
+	if text.upper() == BACK_GROUPS_COMMMAD:	return True
+	return False
+
+#Это команда "Назад к институтам"?
+def isBackToInstitutes(text):
+	if text.upper() == BACK_INSTITUTES_COMMAND:	return True
+	return False
+
+#Это команда "Текущая неделя"?
+def isThisWeek(text):
+	if text.upper() == THIS_WEEK_COMMAND: 	return True
+	return False
+
+#Это команда "Следующая неделя"?
+def isNextWeek(text):
+	if text.upper() == NEXT_WEEK_COMMAND: 	return True
 	return False
