@@ -10,6 +10,8 @@ while(True):
 	for event in longpoll.listen():
 		# Если пришло новое сообщение и оно предназначалось боту
 		if event.type == VkEventType.MESSAGE_NEW and event.to_me == True:
-				user = User(event.message, event.user_id)	#Создали пользователя
-				analysis = Analysis(event.message)			#Анализатор сообщения
+				message = event.message.upper()				#Сообщение в верхнем регистре
+				id = event.user_id							#ID-пользователя
+				user = User(message, id)					#Создали пользователя
+				analysis = Analysis(message)				#Анализатор сообщения
 				write(analysis.analysed(), user, None)		#Отправляем сообщение
