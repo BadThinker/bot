@@ -4,4 +4,12 @@ from src.user import User
  
 #Отправить сообщение пользователю
 def write(message, User, Keyboard):
-	 vk.method('messages.send', {'user_id': User.id, 'message': message, 'random_id': get_random_id()})
+	if(Keyboard == None):
+		vk.method('messages.send', {'user_id'	: User.id, 
+									'message'	: message, 
+									'random_id'	: get_random_id()})
+	else:
+		vk.method('messages.send', {'user_id'	: User.id, 
+									'message'	: message, 
+									'random_id'	: get_random_id(),
+									'keyboard'	: Keyboard})	
